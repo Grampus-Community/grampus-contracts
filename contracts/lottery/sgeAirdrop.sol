@@ -2,11 +2,11 @@
 pragma solidity ^0.8.0;
 pragma experimental ABIEncoderV2;
 
-import './Ownable.sol';
-import './ReentrancyGuard.sol';
-import './SafeMath.sol';
-import './SafeERC20.sol';
-import './IERC20.sol';
+import '../base/Ownable.sol';
+import '../base/ReentrancyGuard.sol';
+import '../base/SafeMath.sol';
+import '../base/SafeERC20.sol';
+import '../base/IERC20.sol';
 
 contract sgeAirdrop is Ownable, ReentrancyGuard
 {
