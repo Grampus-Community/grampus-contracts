@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import './Ownable.sol';
-import './IERC20.sol';
+import '../base/Ownable.sol';
+import '../base/IERC20.sol';
 import './SyrupPool.sol';
 
 contract SyrupPoolFactory is Ownable {
