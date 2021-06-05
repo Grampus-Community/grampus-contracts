@@ -122,7 +122,7 @@ contract sgeAirdrop is Ownable, ReentrancyGuard
    {
       uint256 _reward_amount = _getReward();
 
-      airdropDetails[_msgSender()] = _reward_amount;
+      airdropDetails[_msgSender()] = airdropDetails[_msgSender()].add(_reward_amount);
 
       rewardToken.safeTransfer(_msgSender(), _reward_amount);
 
@@ -132,7 +132,7 @@ contract sgeAirdrop is Ownable, ReentrancyGuard
 
       hasAirdropCount = hasAirdropCount.add(1);
 
-      if(invitor != address(0))
+      if(invitor != address(0) && invitor != _msgSender())
       {
           uint256 _invite_reward_amount = _reward_amount.div(100).mul(inviteRewardRatio);
 
@@ -142,7 +142,7 @@ contract sgeAirdrop is Ownable, ReentrancyGuard
 
           inviteCounts[invitor] = inviteCounts[invitor].add(1); 
 
-          rewardToken.safeTransfer(invitor, _reward_amount);
+          rewardToken.safeTransfer(invitor, _invite_reward_amount);
 
           emit InviteRewardPaid(invitor, _msgSender(), _invite_reward_amount);
       }
